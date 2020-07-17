@@ -1,0 +1,69 @@
+exercise  1
+create table semp
+( empno char(10),
+empname char(20),
+basic float(9.2),
+deptno char(2),
+depthead char(4)
+);
+create table sdept
+(
+deptno char(2),
+deptname char(15)
+);
+insert into sdept
+values(10,'development');
+
+insert into sdept
+values(20,'training');
+
+insert into semp
+values( 0001,'sunil',6000,10,null);
+
+insert into semp
+values( 0002,'hiren',8000,20,null);
+
+
+
+insert into semp
+values( 0003,'ali',4000,10,0001);
+
+insert into semp
+values( 0004,'george',6000,null,0002);
+
+create table s(`s#`char(4),sname varchar(20),status int(4),city varchar(20));
+create table p(`p#`char(9),pname varchar(20),color varchar(10),weight varchar(20),city varchar(10));
+create table j(`j#`char(9),jname varchar(20),city varchar(10));
+insert into s values
+( 's1','anil',10,'nashik'),
+( 's2','atul',20,'mumbai'),
+( 's3','ani',30,'pune');
+
+insert into s values
+( 's1','anil',10,'nashik'),
+( 's2','atul',20,'mumbai'),
+( 's3','ani',30,'pune');
+
+insert into p values
+( 'p1','motor','black','3 kg','nashik'),
+( 'p2','trnsformer','white','100 kg','mumbai'),
+( 'p3','piston','blue','40 kg','pune');
+
+insert into j values
+( 'j1','nashik metro','nashik'),
+( 'j2','pune highway','pune'),
+( 'j3','bridge','delhi');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
