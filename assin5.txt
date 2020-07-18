@@ -1,0 +1,1 @@
+Q1) write a query that will give you all ordes from more than rs 1000.
