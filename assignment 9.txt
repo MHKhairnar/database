@@ -1,0 +1,105 @@
+1.Write a query that lists each order number followed by the name of the customer who made the order.
+
+mysql> select cname,onmu from customer,orders where orders.cnum=customer.cnum;
++----------+------+
+| cname    | onmu |
++----------+------+
+| cisneros | 3001 |
+| hoffman  | 3003 |
+| pereira  | 3002 |
+| liu      | 3005 |
+| cisneros | 3006 |
+| giovanni | 3009 |
+| grass    | 3007 |
+| clemens  | 3008 |
+| grass    | 3010 |
+| grass    | 3010 |
+| clemens  | 3011 |
+| cisneros | 3001 |
+| cisneros | 3001 |
+| cisneros | 3001 |
+| cisneros | 3001 |
++----------+------+
+
+
+
+
+
+2.Write a query that gives the names of both the salesperson and the customer for each order along with the order number
+
+select sname,cname,onmu from customer,orders,salespepole where orders.snum=customer.snum and orders.snum=salespepole.snum;
+
+ 
++---------+----------+------+
+| sname   | cname    | onmu |
++---------+----------+------+
+| rifkin  | cisneros | 3001 |
+| peel    | hoffman  | 3003 |
+| peel    | hoffman  | 3003 |
+| peel    | clemens  | 3003 |
+| peel    | clemens  | 3003 |
+| motika  | pereira  | 3002 |
+| serres  | liu      | 3005 |
+| serres  | grass    | 3005 |
+| rifkin  | cisneros | 3006 |
+| axelrod | giovanni | 3009 |
+| serres  | liu      | 3007 |
+| serres  | grass    | 3007 |
+| peel    | hoffman  | 3008 |
+| peel    | hoffman  | 3008 |
+| peel    | clemens  | 3008 |
+| peel    | clemens  | 3008 |
+| serres  | liu      | 3010 |
+| serres  | grass    | 3010 |
+| serres  | liu      | 3010 |
+| serres  | grass    | 3010 |
+| peel    | hoffman  | 3011 |
+| peel    | hoffman  | 3011 |
+| peel    | clemens  | 3011 |
+| peel    | clemens  | 3011 |
+| rifkin  | cisneros | 3001 |
+| rifkin  | cisneros | 3001 |
+| rifkin  | cisneros | 3001 |
+| rifkin  | cisneros | 3001 |
++---------+----------+------+
+
+
+   
+3.Write a query that produces all customers serviced by salespeople with a commission above 12%. Output the customer’s name, the salesperson’s name, and the salesperson’s rate of commission.
+
+mysql> select cname,sname,comm from salespepole,customer where comm>.12 and salespepole.snum=customer.snum;
++----------+--------+------+
+| cname    | sname  | comm |
++----------+--------+------+
+| liu      | serres | 0.13 |
+| grass    | serres | 0.13 |
+| cisneros | rifkin | 0.15 |
++----------+--------+------+
+
+
+
+
+
+ 
+4.Write a query that calculates the amount of the salesperson’s commission on each order by a customer with a rating above 100
+
+mysql> select amt,comm from salespepole join customer using(snum)join orders using(snum) where rating>100;
++---------+------+
+| amt     | comm |
++---------+------+
+|   18.69 | 0.15 |
+| 5160.45 | 0.13 |
+| 5160.45 | 0.13 |
+| 1098.16 | 0.15 |
+| 1713.69 | 0.10 |
+|   75.75 | 0.13 |
+|   75.75 | 0.13 |
+| 1309.95 | 0.13 |
+| 1309.95 | 0.13 |
+| 1309.95 | 0.13 |
+| 1309.95 | 0.13 |
+|   18.69 | 0.15 |
+|   18.69 | 0.15 |
+|   18.69 | 0.15 |
+|   18.69 | 0.15 |
++---------+------+
